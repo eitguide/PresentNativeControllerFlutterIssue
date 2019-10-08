@@ -12,6 +12,7 @@ import Flutter
     let flutterViewController = self.window.rootViewController as! FlutterViewController
     let nativeChannel = FlutterMethodChannel.init(name: "nghianv/present_controller_native", binaryMessenger: flutterViewController.binaryMessenger)
     
+
     nativeChannel.setMethodCallHandler { [weak self] (methodCall, result) in
         guard let self = self else { return }
         if(methodCall.method == "presentController") {
@@ -21,6 +22,11 @@ import Flutter
         }
     }
 
+    
+    let navigationVC = UINavigationController(rootViewController: flutterViewController)
+    navigationVC.isNavigationBarHidden = true
+    window.rootViewController = navigationVC
+    window.makeKeyAndVisible()
     
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

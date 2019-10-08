@@ -8,7 +8,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  static const platform = const MethodChannel('nghianv/f');
+  static const platform = const MethodChannel('nghianv/present_controller_native');
 
   void callPresentViewControllerNative() async {
     await platform.invokeMethod('presentController');
